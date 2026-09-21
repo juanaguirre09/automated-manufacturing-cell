@@ -140,41 +140,26 @@ Three levels of GRAFCET were developed to progressively describe the automation 
 
 ## GRAFCET Design
 
-### Level 1 — Functional Process Description
+The manufacturing sequence was designed using GRAFCET before being implemented in Ladder Logic.
 
-![GRAFCET Level 1](images/grafcet-level-1.png)
+The diagram below provides a functional overview of the complete process, from pallet arrival at the first station to final product inspection.
 
-The first level provides a functional description of the complete manufacturing sequence.
+![GRAFCET Process Overview](images/grafcet-level-1.png)
 
-It focuses on the main operations performed by the system, including pallet transportation, base feeding, lid assembly, and final product verification.
+Although the original GRAFCET was developed in Spanish, the main sequence can be summarized as follows:
 
-This representation provides an overall view of the process without focusing on the specific PLC variables used in the implementation.
+1. A pallet enters Station 1.
+2. The pallet is positioned and stopped.
+3. A base is released onto the pallet.
+4. The pallet moves to Station 2.
+5. A lid is released onto the base.
+6. The assembled product moves to Station 3.
+7. The product is inspected according to its base and lid color combination.
+8. The detected product is compared with the requested configuration.
+9. Correct and incorrect products are counted.
+10. The system returns to the beginning of the sequence for the next production cycle.
 
-### Level 2 — Sequential Control Logic
-
-![GRAFCET Level 2](images/grafcet-level-2.png)
-
-The second level introduces the sequential control actions and the conditions required to transition between stages.
-
-It defines the relationship between the different manufacturing operations and shows how the process progresses according to sensor states, timing conditions, and the completion of previous operations.
-
-### Level 3 — Detailed Control Sequence
-
-![GRAFCET Level 3](images/grafcet-level-3.png)
-
-The third level connects the GRAFCET sequence with the variables used in the PLC implementation.
-
-It includes the signals associated with:
-
-- Conveyor motors
-- Position sensors
-- Blocking mechanisms
-- Separation mechanisms
-- Timers
-- Internal sequence states
-- Product inspection sensors
-
-This level served as the main reference for translating the sequence into Ladder Logic.
+The GRAFCET was used as the reference for translating the process sequence into PLC Ladder Logic.
 
 ## PLC Implementation
 
