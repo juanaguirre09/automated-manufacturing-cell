@@ -1,4 +1,10 @@
-# Automated Manufacturing Cell for Base and Lid Assembly
+# Automated manufacturing cell for base and lid assembly
+
+<p align="left">
+  <a href="https://www.youtube.com/watch?v=b7jptugE9zk" target="_blank">
+    <img src="https://img.shields.io/badge/Watch%20Project%20Video-YouTube-red?style=for-the-badge&logo=youtube&logoColor=white" alt="Watch Project Video">
+  </a>
+</p>
 
 Automation of a manufacturing cell for the assembly and inspection of products composed of a base and a lid.
 
@@ -6,7 +12,7 @@ The project focuses on the sequential control of three manufacturing stations re
 
 The system coordinates conveyor motors, pneumatic mechanisms, sensors, timers, and production counters to execute the complete assembly cycle and verify whether the manufactured product matches the requested configuration.
 
-## Project Overview
+## Project overview
 
 The objective of this project was to design and implement an automated control system for the first three stations of a manufacturing cell.
 
@@ -21,9 +27,9 @@ The automation was developed following a sequential-control approach:
 5. Adjustment of timers, transitions, sensors, and actuator commands.
 6. Implementation of product identification and production monitoring.
 
-## Manufacturing Cell
+## Manufacturing cell
 
-![Automated Manufacturing Cell](images/automated-cell.jpg)
+![Automated manufacturing cell](images/automated-cell.jpg)
 
 The project was implemented on a physical manufacturing cell composed of three sequential stations.
 
@@ -35,7 +41,7 @@ Each product is transported on a pallet through the following operations:
 
 The PLC coordinates the movement of the pallet between stations and controls the motors, blocking mechanisms, separation mechanisms, and sensors required for each stage of the process.
 
-## Project Objectives
+## Project objectives
 
 The main objective was to automate the first three stations of the manufacturing cell in order to coordinate the assembly process and perform automatic product verification.
 
@@ -50,11 +56,11 @@ The main tasks included:
 - Counting correctly and incorrectly assembled products.
 - Translating the GRAFCET sequence into Ladder Logic.
 
-## Manufacturing Process
+## Manufacturing process
 
 The automated process is divided into three main stations.
 
-### Station 1 — Base Feeding
+### Station 1 — base feeding
 
 The first station is responsible for introducing the base into the manufacturing sequence.
 
@@ -66,7 +72,7 @@ The separation mechanism then releases a base onto the pallet.
 
 After the loading operation is completed, the pallet is released and transported toward the second station.
 
-### Station 2 — Lid Assembly
+### Station 2 — lid assembly
 
 The second station performs the lid loading operation.
 
@@ -76,7 +82,7 @@ The pallet is stopped and held in the loading area. The lid separation mechanism
 
 Once the operation is completed, the blocking mechanism is released and the conveyors transfer the assembled product toward the third station.
 
-### Station 3 — Product Inspection
+### Station 3 — product inspection
 
 The third station is responsible for inspecting the assembled product.
 
@@ -88,7 +94,7 @@ This value is then compared with the product configuration requested at the begi
 
 According to the result, the product is registered as either correctly or incorrectly assembled.
 
-## Product Configurations
+## Product configurations
 
 The system handles four possible combinations of base and lid colors.
 
@@ -115,7 +121,7 @@ If the values are different, the product is counted as incorrectly assembled.
 
 This provides a basic quality-control function directly within the PLC sequence.
 
-## Control Strategy
+## Control strategy
 
 The manufacturing sequence was designed using GRAFCET before being implemented in Ladder Logic.
 
@@ -138,13 +144,13 @@ The sequence includes:
 
 Three levels of GRAFCET were developed to progressively describe the automation sequence.
 
-## GRAFCET Design
+## GRAFCET design
 
 The manufacturing sequence was designed using GRAFCET before being implemented in Ladder Logic.
 
 The diagram below provides a functional overview of the complete process, from pallet arrival at the first station to final product inspection.
 
-![GRAFCET Process Overview](images/grafcet-level-1.png)
+![GRAFCET process overview](images/grafcet-level-1.png)
 
 Although the original GRAFCET was developed in Spanish, the main sequence can be summarized as follows:
 
@@ -161,7 +167,7 @@ Although the original GRAFCET was developed in Spanish, the main sequence can be
 
 The GRAFCET was used as the reference for translating the process sequence into PLC Ladder Logic.
 
-## PLC Implementation
+## PLC implementation
 
 The control program was implemented in Siemens TIA Portal using Ladder Logic.
 
@@ -183,7 +189,7 @@ The implementation includes:
 - Automatic cycle restart
 - Stop and reset logic
 
-## PLC Inputs and Outputs
+## PLC Inputs and outputs
 
 The automation system uses digital inputs and outputs to connect the PLC with the physical elements of the manufacturing cell.
 
@@ -212,7 +218,7 @@ The input/output mapping allows the PLC program to connect the GRAFCET states wi
 
 Selected sections of the Ladder Logic program are shown below to illustrate how the GRAFCET sequence was translated into PLC control logic.
 
-### Initial GRAFCET Logic
+### Initial GRAFCET logic
 
 ![Initial Sequence Logic](images/logic-ladder-01.jpg)
 
@@ -224,9 +230,9 @@ Once the conditions are satisfied, the first internal state of the sequence is a
 
 From this point, the process progresses through the different GRAFCET stages according to sensor signals and transition conditions.
 
-### Requested Product Assignment
+### Requested product assignment
 
-![Requested Product Assignment](images/logic-ladder-02.jpg)
+![Requested product assignment](images/logic-ladder-02.jpg)
 
 The program allows the desired product combination to be defined before the manufacturing process begins.
 
@@ -243,9 +249,9 @@ The selected value is stored internally as the requested product.
 
 This variable is maintained throughout the manufacturing sequence and is later compared with the product detected at the inspection station.
 
-### Assembly Verification Logic
+### Assembly verification logic
 
-![Assembly Verification Logic](images/logic-ladder-03.jpg)
+![Assembly verification logic](images/logic-ladder-03.jpg)
 
 At the third station, the PLC evaluates the inspection sensor signals to determine the configuration of the assembled product.
 
@@ -255,7 +261,7 @@ The detected value is then compared with the requested product configuration.
 
 This logic makes it possible to automatically determine whether the manufactured assembly corresponds to the production request.
 
-## Timers and Sequential Coordination
+## Timers and sequential coordination
 
 TON timers are used throughout the control program to coordinate operations that require a defined amount of time before the next stage can begin.
 
@@ -273,7 +279,7 @@ The timers work together with physical sensor signals and internal sequence stat
 
 This combination prevents the sequence from progressing until the corresponding operation has been completed.
 
-## Production Monitoring
+## Production monitoring
 
 The PLC program includes counters to monitor the manufacturing process.
 
@@ -303,7 +309,7 @@ the incorrect-product counter is incremented.
 
 After the verification process, the sequence can return to the beginning and process another pallet while additional production is required.
 
-## Simplified Operating Sequence
+## Simplified operating sequence
 
 The overall manufacturing process can be summarized as follows:
 
@@ -375,7 +381,7 @@ The use of GRAFCET provided a structured way to design the sequential behavior o
 
 Testing and adjustment of the program were performed on the manufacturing cell to refine the timing, sensor conditions, and transitions between the different stages.
 
-## Technologies and Concepts
+## Technologies and concepts
 
 The project involved the application of the following technologies and industrial automation concepts:
 
@@ -399,11 +405,19 @@ The project involved the application of the following technologies and industria
 ## Authors
 
 **Juan C. Aguirre**  
-Mechatronics Engineering  
+Mechatronics engineering  
 Universidad Tecnológica de Pereira
 
 **Santiago M. Echeverri**  
-Mechatronics Engineering  
+Mechatronics engineering  
+Universidad Tecnológica de Pereira
+
+**Julián Aragón**  
+Mechatronics engineering  
+Universidad Tecnológica de Pereira
+
+**Camilo García**  
+Mechatronics engineering  
 Universidad Tecnológica de Pereira
 
 Project developed as part of an Industrial Automation course at Universidad Tecnológica de Pereira.
