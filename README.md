@@ -411,12 +411,6 @@ The project involved the application of the following technologies and industria
 - Automated Quality Control
 - Production Monitoring
 
-## Demonstration
-
-A video demonstration of the manufacturing cell and its operating sequence is available here:
-
-[Watch the manufacturing cell demonstration](https://youtu.be/-DiByLcjxRM)
-
 ## Authors
 
 **Juan C. Aguirre**  
