@@ -189,7 +189,7 @@ The implementation includes:
 - Automatic cycle restart
 - Stop and reset logic
 
-## PLC Inputs and outputs
+## PLC inputs and outputs
 
 The automation system uses digital inputs and outputs to connect the PLC with the physical elements of the manufacturing cell.
 
@@ -214,7 +214,7 @@ The PLC outputs control elements such as:
 
 The input/output mapping allows the PLC program to connect the GRAFCET states with the physical behavior of the manufacturing cell.
 
-## Ladder Logic Implementation
+## Ladder logic implementation
 
 Selected sections of the Ladder Logic program are shown below to illustrate how the GRAFCET sequence was translated into PLC control logic.
 
